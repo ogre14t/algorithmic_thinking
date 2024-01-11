@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 int find_shortest(int lines[], int n) {
-    int j;
+    int i;
     int shortest = 0;
-    for(int j = 1; j < n; j++){
-        if(lines[j] < lines[shortest])
-            shortest = j;
+    for(int i = 1; i < n; i++){
+        if(lines[i] < lines[shortest])
+            shortest = i;
     }
     return shortest;
 }
