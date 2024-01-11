@@ -1,12 +1,13 @@
 #include <stdio.h>
 
 int find_shortest(int lines[], int n) {
-    int i;
+    int j;
     int shortest = 0;
     for(int j = 1; j < n; j++){
         if(lines[j] < lines[shortest])
             shortest = j;
     }
+    return shortest;
 }
 
 int solve(int lines[], int n, int m){
@@ -26,7 +27,7 @@ int main(void) {
     int n,m,i;
     scanf("%d %d\n", &n, &m);
     for(i = 0; i < n; i++){
-        scanf("%d\n", &lines[i]);
+        scanf("%d", &lines[i]);
     }
     solve(lines, n, m);
     return 0;    
