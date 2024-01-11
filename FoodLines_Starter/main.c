@@ -1,31 +1,33 @@
 #include <stdio.h>
 
-int main()
-{
-    int firstLine[2];
-    int secondLine[100];
-    int lines[100];
-    int numPeople[100];
-    
-    scanf("%d %d", &firstLine[0], &firstLine[1]);
-
-    char people[] = scanf("%c");
-    for (int i =0; i < strlen(people); i++)
-    {
-        secondLine[i] = people[i]; 
-        printf(&secondLine[i]);
+int find_shortest(int lines[], int n) {
+    int i;
+    int shortest = 0;
+    for(int j = 1; j < n; j++){
+        if(lines[j] < lines[shortest])
+            shortest = j;
     }
+}
 
-    for (int i =0; i < len(lines); i++)
-    {
-        secondLine[i] = numPeople[i];
+int solve(int lines[], int n, int m){
+    int i, shortest;
+    for (i = 0; i < m; i++) {
+        shortest = find_shortest(lines, n);
+        printf("%d\n", lines[shortest]);
+        lines[shortest]++; 
     }
 }
 
 // take input from user
 
-// create arrays for the number of lines and the number of people in each line
-
 // create a loop to identify the shortest line and add one person to it
-
-// print out the input
+int main(void) {
+    int lines[100];
+    int n,m,i;
+    scanf("%d %d\n", &n, &m);
+    for(i = 0; i < n; i++){
+        scanf("%d\n", &lines[i]);
+    }
+    solve(lines, n, m);
+    return 0;    
+}
